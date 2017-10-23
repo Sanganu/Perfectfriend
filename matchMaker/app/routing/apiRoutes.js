@@ -12,7 +12,7 @@ module.exports = function(app) //app referes to express in server.js file
     {
       var friendobject = JSON.stringify(userData,null,2);
       res.send(friendobject);
-      //res.json(userData,null,2);
+      //res.json(userData);
     });
     app.post('/api/friends',function(req,res)
     {

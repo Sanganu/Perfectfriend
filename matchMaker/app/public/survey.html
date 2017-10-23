@@ -15,7 +15,7 @@
                    font-family: 'Patua One', cursive;
               }
               .jumbotron {
-                background-color: #58D68D;
+                background-color: #A9CCE;
                 text-align: center;
                 margin-left:50px;
                 margin-right:50px;
@@ -40,6 +40,10 @@
               p {
                 font-size: 20px;
                 font-family: 'Sanchez', serif;
+              }
+              #restitle {
+                text-align: center;
+                font-family: 'Lobster Two', cursive;
               }
     </style>
   </head>
@@ -127,17 +131,23 @@
           </form>
       </div>
       <br /><br />
-      <div class = "container" id = "result">
-           <h4>The Best Match</h4><br />
-           <h3 id= "htname"></h3> <br />
-           <img id= "htpic" height = 200 width = 200></img>
-           <h3 id ="htscore"></h4>
+      <h3 id ="restitle">The Best Match</h3><br />
+      <div class = "container table-stripped" id = "result" >
+           <div class = "row">
+               <div class ="col-md-6">
+                    <h3 id= "htname"></h3> <br />
+               </div>
+               <div class = "col-md-6">
+                   <img id= "htpic" height = 200 width = 200></img>
+                <div>   
+           </div>
       </div>
-
+      <br /><br />
       <div class = "navbar bavbar-inverse" id ="footer">
-         <a class = "menuitem" href = "/api/friendslist" target ="_blank">Friends List</a>
-         <a class = "menuitem" href = "https://github.com/scodingjs/matchMaker" target ="_blank">Github Repo</a>
+         <a class = "menuitem" href = "/api/friendslist" target ="_blank">FriendsList</a>
+         <a class = "menuitem" href = "https://github.com/scodingjs/Perfectfriend" target ="_blank">GithubRepo</a>
          <a class = "menuitem" href = "/any" target ="_blank">Home</a>
+         <a class = "menuitem" href = "/survey">Clear</a>
       </div>
   </body>
   <script type = "text/javascript">
@@ -153,8 +163,8 @@
                    var gl_img = '';
 
                    var gl_score = 0;
-                   var htusername =  $("#usname").val();
-                   var htphoto = $("#photo").val();
+                   var htusername =  $("#usname").val() || 'Jagathmohin' ;
+                   var htphoto = $("#photo").val() || 'https://img.buzzfeed.com/buzzfeed-static/static/2014-07/29/11/campaign_images/webdr08/19-things-the-lord-of-the-rings-characters-were-r-2-19264-1406647286-29_dblbig.jpg' ;
                    var htans1 = $("#answer1").val().trim();
                    var htans2 = $("#answer2").val().trim()
                    var htans3 = $("#answer3").val().trim();
@@ -169,7 +179,10 @@
                    var newuser = {
                                     name : htusername,
                                     photo : htphoto,
-                                    scores:[htans1,htans2,htans3,htans4,htans5]
+                                    score1:htans1,
+                                    score2:htans2,
+                                    score3:htans3,
+                                    score4:htans5
                                   };
 
 
@@ -182,14 +195,14 @@
                          for(var i =0 ; i < frienddata.length; i++)
                          {
                                  console.log(frienddata[i].name,'name in for');
-                                 console.log(frienddata[i].scores[0]);
-                                 console.log(frienddata[i].scores[1])
+                                 //console.log(frienddata[i].scores[0]);
+                                 //console.log(frienddata[i].scores[1])
                                  var compscore = 0;
-                                 var sc1 =  Math.abs(htans1 - (frienddata[i].scores[0]));
-                                 var sc2 =  Math.abs(htans2 - (frienddata[i].scores[1]));
-                                 var sc3 =  Math.abs(htans3 - (frienddata[i].scores[2]));
-                                 var sc4 =  Math.abs(htans4 - (frienddata[i].scores[3]));
-                                 var sc5 =  Math.abs(htans5 - (frienddata[i].scores[4]));
+                                 var sc1 =  Math.abs(htans1 - (frienddata[i].score1));
+                                 var sc2 =  Math.abs(htans2 - (frienddata[i].score2));
+                                 var sc3 =  Math.abs(htans3 - (frienddata[i].score3));
+                                 var sc4 =  Math.abs(htans4 - (frienddata[i].score4));
+                                 var sc5 =  Math.abs(htans5 - (frienddata[i].score5));
                                  compscore = sc1 + sc2 + sc3 + sc4 +sc5 ;
                                  console.log('compscore',compscore);
 
