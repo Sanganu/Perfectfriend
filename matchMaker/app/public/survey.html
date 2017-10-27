@@ -7,50 +7,80 @@
     <script src = "https://code.jquery.com/jquery.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Lobster+Two|Old+Standard+TT|Patua+One|Sanchez" rel="stylesheet">
     <style>
-              body {
-                margin-left: 50px;
-                margin-right: 50px;
-              }
-              .jumbotron h1 {
-                   font-family: 'Patua One', cursive;
-              }
-              .jumbotron {
-                background-color: #A9CCE;
-                text-align: center;
-                margin-left:50px;
-                margin-right:50px;
-              }
-              .top {
-                margin: 2px solid black;
-              }
-              #footer {
-                font-size: 24px;
-                margin: 15px;
-                font-family: 'Old Standard TT', serif;
-              }
-              .menuitem {
-                margin-left: 30px;
-                margin-right: 30px;
-                font-family: 'Old Standard TT', serif;
+                body {
+                  margin-left: 50px;
+                  margin-right: 50px;
+                }
+                .jumbotron h1 {
+                     font-family: 'Patua One', cursive;
+                }
+                .jumbotron {
+                  background-color: rgb(192, 224, 245);
+                  text-align: center;
+                  margin-left:50px;
+                  margin-right:50px;
+                }
+                .curtitle {
+                  font-family: 'Lobster Two', cursive;
+                }
+                #footer {
+                  font-size: 24px;
+                  left: 25%;;
+                  font-family: 'Old Standard TT', serif;
+                }
+                .menuitem {
+                  margin-left: 35px;
+                  margin-right: 30px;
+                  font-family: 'Old Standard TT', serif;
+                }
+                .contentq {
+                  font-family: 'Sanchez', serif;
+                }
+                #searchbtn {
+                  border-radius: 20px;
+                  transition: 0.3s;
+                }
+                #searchbtn:hover { opacity: 0.7;}
+                .modal-content {
+                  top: 23%;
+                  left:20%;
+                  padding: 20px;
+                  width:50%;
+                  height: 50%;
+                  background-color: black;
+                  color: white;
+                }
+                #htitle,#htname {
+                    text-align: center;
+                    }
+                #htpic {
+                   position: absolute;
+                   top: 40%;
+                   left:40%;
+                }
+                #close {
+                    position: absolute;
+                    top: 15px;
+                    right: 35px;
+                    color: #f1f1f1;
+                    font-size: 40px;
+                    font-weight: bold;
+                    transition: 0.3s;
+                }
+                #close:hover,
+                #close:focus {
+                    color: #bbb;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
 
-              }
-              .top {
-                margin: 2px solid black;
-              }
-              p {
-                font-size: 20px;
-                font-family: 'Sanchez', serif;
-              }
-              #restitle {
-                text-align: center;
-                font-family: 'Lobster Two', cursive;
-              }
     </style>
   </head>
   <body>
       <div class = "jumbotron">
           <h1>Friend Finder</h1>
-         <h3>Survey Questions</h3>
+         <h3 class = "curtitle">Survey Questions</h3>
+         <p class = "curtitle">On the scale of 1 to 5 with 1 being 'You hate it' and 5 being 'You Love it'</p>
       </div>
       <div class = "container" id = "questbox">
           <h3>About You</h3>
@@ -65,11 +95,10 @@
                                 <input class = "form-control" id = "photo" type = "text" required>
                            </div>
                     </div>
-                     <p>On the scale of 1 to 5 with 1 being 'You hate it' and 5 'You Love it'</p>
+
                       <div class = "form-group">
-                           <h3>Question 1</h3>
-                           <label>Horror movies    :   </label>
-                      <!--     <input list = "answer1" name ="answer1"> -->
+                           <h3 class = "contentq">Question 1</h3>
+                           <label class = "contentq">Horror movies    :   </label>
                                 <select class = "form-control" id = "answer1">
                                     <option value = "1">1</option>
                                     <option value = "2">2</option>
@@ -79,9 +108,8 @@
                                 </select>
                      </div>
                      <div class = "form-group">
-                          <h3>Question 2</h3>
-                          <label>Theme Park thrill Rides  :  </label>
-                      <!--    <input list = "answer2" name ="answer2"> -->
+                          <h3 class = "contentq">Question 2</h3>
+                          <label class = "contentq">Theme Park thrill Rides  :  </label>
                                 <select class = "form-control" id = "answer2">
                                     <option value = "1">1</option>
                                     <option value = "2">2</option>
@@ -91,9 +119,8 @@
                                 </select>
                     </div>
                     <div class = "form-group">
-                        <h3>Question 3</h3>
-                         <label>Beahes   : </label>
-                         <!--<input list = "answer3" name ="answer3"> -->
+                        <h3 class = "contentq">Question 3</h3>
+                         <label class = "contentq">Beahes   : </label>
                               <select class = "form-control" id = "answer3">
                                   <option value = "1">1</option>
                                   <option value = "2">2</option>
@@ -103,10 +130,64 @@
                               </select>
                    </div>
                    <div class = "form-group">
-                       <h3>Question 4</h3>
-                        <label>Boating   :  </label>
-
-                             <select class = "form-control" id = "answer4">
+                       <h3 class = "contentq">Question 4</h3>
+                        <label class = "contentq">Boating   :  </label>
+                        <select class = "form-control" id = "answer4">
+                                 <option value = "1">1</option>
+                                 <option value = "2">2</option>
+                                 <option value = "3" selected>3</option>
+                                 <option value = "4">4</option>
+                                 <option value = "5">5</option>
+                        </select>
+                  </div>
+                  <div class = "form-group">
+                        <h3 class = "contentq">Question 5</h3>
+                         <label class = "contentq">Hiking   :   </label>
+                         <select class = "form-control" id = "answer5">
+                                  <option value = "1">1</option>
+                                  <option value = "2">2</option>
+                                  <option value = "3" selected>3</option>
+                                  <option value = "4">4</option>
+                                  <option value = "5">5</option>
+                          </select>
+                 </div>
+                 <div class = "form-group">
+                           <h3 class = "contentq">Question 6</h3>
+                           <label class = "contentq">Water Rafting   :   </label>
+                                <select class = "form-control" id = "answer6">
+                                    <option value = "1">1</option>
+                                    <option value = "2">2</option>
+                                    <option value = "3" selected ="selected">3</option>
+                                    <option value = "4">4</option>
+                                    <option value = "5">5</option>
+                                </select>
+                     </div>
+                     <div class = "form-group">
+                          <h3 class = "contentq">Question 7</h3>
+                          <label class = "contentq">Sky Dive  :  </label>
+                                <select class = "form-control" id = "answer7">
+                                    <option value = "1">1</option>
+                                    <option value = "2">2</option>
+                                    <option value = "3" selected ="selected">3</option>
+                                    <option value = "4">4</option>
+                                    <option value = "5">5</option>
+                                </select>
+                    </div>
+                    <div class = "form-group">
+                        <h3 class = "contentq">Question 8</h3>
+                         <label class = "contentq">Rock Climbing   : </label>
+                              <select class = "form-control" id = "answer8">
+                                  <option value = "1">1</option>
+                                  <option value = "2">2</option>
+                                  <option value = "3" selected>3</option>
+                                  <option value = "4">4</option>
+                                  <option value = "5">5</option>
+                              </select>
+                   </div>
+                   <div class = "form-group">
+                       <h3 class = "contentq">Question 9</h3>
+                        <label class = "contentq">Scuba Diving  :  </label>
+                             <select class = "form-control" id = "answer9">
                                  <option value = "1">1</option>
                                  <option value = "2">2</option>
                                  <option value = "3" selected>3</option>
@@ -115,10 +196,9 @@
                              </select>
                   </div>
                   <div class = "form-group">
-                        <h3>Question 5</h3>
-                         <label>Hiking   :   </label>
-
-                              <select class = "form-control" id = "answer5">
+                        <h3 class = "contentq">Question 10</h3>
+                         <label class = "contentq">Bungee Jumping  :   </label>
+                              <select class = "form-control" id = "answer10">
                                   <option value = "1">1</option>
                                   <option value = "2">2</option>
                                   <option value = "3" selected>3</option>
@@ -130,18 +210,15 @@
                  <button class = "btn btn-info btn-primary btn-block" id = "searchbtn">Search</button>
           </form>
       </div>
-      <br /><br />
-      <h3 id ="restitle">The Best Match</h3><br />
-      <div class = "container table-stripped" id = "result" >
-           <div class = "row">
-               <div class ="col-md-6">
-                    <h3 id= "htname"></h3> <br />
-               </div>
-               <div class = "col-md-6">
-                   <img id= "htpic" height = 200 width = 200></img>
-                <div>   
-           </div>
-      </div>
+      <div class = "modal" id = "result">
+        <div class = "modal-content">
+               <span id = "close">&times;</span>
+               <h3 class = "curtitle" id = "htitle">The Best Match</h3><br />
+               <h3 class = "curtitle" id= "htname"></h3> <br />
+               <img id= "htpic"height = 200 width = 200></img>
+        </div>
+    </div>
+
       <br /><br />
       <div class = "navbar bavbar-inverse" id ="footer">
          <a class = "menuitem" href = "/api/friendslist" target ="_blank">FriendsList</a>
@@ -149,88 +226,120 @@
          <a class = "menuitem" href = "/any" target ="_blank">Home</a>
          <a class = "menuitem" href = "/survey">Clear</a>
       </div>
+      <script type = "text/javascript" >
+                  $(document).ready(function()
+                   {
+
+                            $("#result").hide();
+                            function getcompatible()
+                            {
+                              //to get the users page
+                              var currentURL = window.location.origin || 'c:/users/kspm/documents/anukalia/matchmaker/app';
+                              var gl_name = '';
+                              var gl_img = '';
+
+                              var gl_score = 0;
+                              var htusername =  $("#usname").val() || 'Guest User' ;
+                              var htphoto = $("#photo").val() || 'http://www.sanger.ac.uk/sites/all/themes/zangerfront/images/person-no-image.png' ;
+                              var htans1 = $("#answer1").val().trim();
+                              var htans2 = $("#answer2").val().trim()
+                              var htans3 = $("#answer3").val().trim();
+                              var htans4 = $("#answer4").val().trim();
+                              var htans5 = $("#answer5").val().trim();
+                              var htans6 = $("#answer6").val().trim();
+                              var htans7 = $("#answer7").val().trim();
+                              var htans8 = $("#answer8").val().trim();
+                              var htans9 = $("#answer9").val().trim();
+                              var htans10 = $("#answer10").val().trim();
+                              console.log('The url:',currentURL+'/api/friends');
+                              console.log(`${htusername} username`)
+                              console.log(`${htphoto} photo`);
+                              console.log(`${htans1} ans1`);
+                              console.log(`${htans2} ans2`);
+                              console.log(`${htans3} ans3`);
+                              var newuser = {
+                                               name : htusername,
+                                               photo : htphoto,
+                                               score1:htans1,
+                                               score2:htans2,
+                                               score3:htans3,
+                                               score4:htans4,
+                                               score5:htans5,
+                                               score6:htans6,
+                                               score7:htans7,
+                                               score8:htans8,
+                                               score9:htans9,
+                                               score10:htans10
+                                             };
+
+
+
+                              $.ajax({url: currentURL+"/api/friends",method:"GET"}).done(function(frienddata)
+                              {
+                                    console.log('The url:',currentURL+'/api/friends');
+                                    console.log('frienddata',frienddata);
+                                    var bestscore = 20;
+                                    for(var i =0 ; i < frienddata.length; i++)
+                                    {
+                                            console.log(frienddata[i].name,'name in for');
+                                            //console.log(frienddata[i].scores[0]);
+                                            //console.log(frienddata[i].scores[1])
+                                            var compscore = 0;
+                                            var sc1 =  Math.abs(htans1 - (frienddata[i].score1));
+                                            var sc2 =  Math.abs(htans2 - (frienddata[i].score2));
+                                            var sc3 =  Math.abs(htans3 - (frienddata[i].score3));
+                                            var sc4 =  Math.abs(htans4 - (frienddata[i].score4));
+                                            var sc5 =  Math.abs(htans5 - (frienddata[i].score5));
+                                            var sc6 =  Math.abs(htans6 - (frienddata[i].score6));
+                                            var sc7 =  Math.abs(htans7 - (frienddata[i].score7));
+                                            var sc8 =  Math.abs(htans8 - (frienddata[i].score8));
+                                            var sc9 =  Math.abs(htans9 - (frienddata[i].score9));
+                                            var sc10 =  Math.abs(htans10 - (frienddata[i].score10));
+
+                                            compscore = sc1 + sc2 + sc3 + sc4 +sc5 + sc6 +sc7 +sc8+sc9+sc10 ;
+                                            console.log('compscore',compscore);
+
+                                            if ( compscore < bestscore)
+                                            {
+                                              bestscore = compscore ;
+                                              gl_name = frienddata[i].name ;
+                                              gl_img = frienddata[i].photo ;
+                                              gl_score = compscore;
+                                            }
+                                     }
+                                     $("#result").show();
+                                     $("#htname").text(`Name: ${gl_name}`) ;
+                                     $("#htpic").attr('src',gl_img);
+                                     // $("#htscore").text(gl_score) ;
+                              }); //end of ajax
+                              $.post((currentURL+"/api/friends"),newuser, function(data)
+                              {
+                                   if(data) console.log("Added new user");
+                              }); //end of post
+                            }//end of getcompatible()
+
+                            $("#searchbtn").on("click",function(event)
+                              {
+                                 event.preventDefault() ;
+                                 console.log('In click of search');
+                                 getcompatible();
+                              });
+
+                            $("#close").on("click",function()
+                            {
+                                  var currentURL = window.location.origin;
+                                  console.log("Inside the close");
+                                  $("#result").hide();
+                                  $("#htname").text("");
+                                  $("htpic").attr("src","");
+                                  //Clear main form
+                                  $("#usname").text = "" ;
+                                  $("#photo").text = "" ;
+
+                            });
+                  });
+
+      </script>
   </body>
-  <script type = "text/javascript">
-       $(document).ready(function()
-        {
 
-                 $("#result").hide();
-                 function getcompatible()
-                 {
-                   //to get the users page
-                   var currentURL = window.location.origin || 'c:/users/kspm/documents/anukalia/matchmaker/app';
-                   var gl_name = '';
-                   var gl_img = '';
-
-                   var gl_score = 0;
-                   var htusername =  $("#usname").val() || 'Jagathmohin' ;
-                   var htphoto = $("#photo").val() || 'https://img.buzzfeed.com/buzzfeed-static/static/2014-07/29/11/campaign_images/webdr08/19-things-the-lord-of-the-rings-characters-were-r-2-19264-1406647286-29_dblbig.jpg' ;
-                   var htans1 = $("#answer1").val().trim();
-                   var htans2 = $("#answer2").val().trim()
-                   var htans3 = $("#answer3").val().trim();
-                   var htans4 = $("#answer4").val().trim();
-                   var htans5 = $("#answer5").val().trim();
-                   console.log('The url:',currentURL+'/api/friends');
-                   console.log(`${htusername} username`)
-                   console.log(`${htphoto} photo`);
-                   console.log(`${htans1} ans1`);
-                   console.log(`${htans2} ans2`);
-                   console.log(`${htans3} ans3`);
-                   var newuser = {
-                                    name : htusername,
-                                    photo : htphoto,
-                                    score1:htans1,
-                                    score2:htans2,
-                                    score3:htans3,
-                                    score4:htans5
-                                  };
-
-
-
-                   $.ajax({url: currentURL+"/api/friends",method:"GET"}).done(function(frienddata)
-                   {
-                         console.log('The url:',currentURL+'/api/friends');
-                         console.log('frienddata',frienddata);
-                         var bestscore = 20;
-                         for(var i =0 ; i < frienddata.length; i++)
-                         {
-                                 console.log(frienddata[i].name,'name in for');
-                                 //console.log(frienddata[i].scores[0]);
-                                 //console.log(frienddata[i].scores[1])
-                                 var compscore = 0;
-                                 var sc1 =  Math.abs(htans1 - (frienddata[i].score1));
-                                 var sc2 =  Math.abs(htans2 - (frienddata[i].score2));
-                                 var sc3 =  Math.abs(htans3 - (frienddata[i].score3));
-                                 var sc4 =  Math.abs(htans4 - (frienddata[i].score4));
-                                 var sc5 =  Math.abs(htans5 - (frienddata[i].score5));
-                                 compscore = sc1 + sc2 + sc3 + sc4 +sc5 ;
-                                 console.log('compscore',compscore);
-
-                                 if ( compscore < bestscore)
-                                 {
-                                   bestscore = compscore ;
-                                   gl_name = frienddata[i].name ;
-                                   gl_img = frienddata[i].photo ;
-                                   gl_score = compscore;
-                                 }
-                          }
-                          $("#result").show();
-                          $("#htname").text(`Name: ${gl_name}`) ;
-                          $("#htpic").attr('src',gl_img);
-                          // $("#htscore").text(gl_score) ;
-                   }); //end of ajax
-                   $.post((currentURL+"/api/friends"),newuser, function(data)
-                   {
-                        if(data) console.log("Added new user");
-                   }); //end of post
-                 }//end of getcompatible()
-
-                 $("#searchbtn").on("click",function(event)
-                   {
-                      event.preventDefault() ;
-                      console.log('In click of search');
-                      getcompatible();
-                   });
-      });
-  </script>
 </html>

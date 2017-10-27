@@ -10,28 +10,37 @@
                 body {
                   margin-left: 50px;
                   margin-right: 50px;
+
                 }
                 .jumbotron h1 {
                      font-family: 'Patua One', cursive;
                 }
                 .jumbotron {
-                  background-color: #A9CCE;
+                  background-color: rgb(192, 224, 245);
                   text-align: center;
                   margin-left:50px;
+                  margin-right:50px;
                 }
                 .top {
                   margin: 2px solid black;
                 }
                 #footer {
                   font-size: 24px;
-                  margin: 15px;
+                  margin-left: 50px;
                   font-family: 'Old Standard TT', serif;
                 }
                 button {
                   color: white;
+                  width: 250px;
+                  height:100px;
+                  font-family: 'Patua One', cursive;
+                  font-size: 30px;
+                  border-radius: 30px;
+                  background-color: hsl(204, 52%, 67%);
+                  color:black;
                 }
                 .menuitem {
-                  margin-left: 30px;
+                  margin-left: 35px;
                   margin-right: 30px;
                   font-family: 'Old Standard TT', serif;
 
@@ -43,20 +52,23 @@
                   font-size: 20px;
                   font-family: 'Sanchez', serif;
                 }
+                h3 {
+                  font-family: 'Lobster Two', cursive;
+                }
       </style>
   </head>
   <body>
     <div class = "jumbotron">
-        <h1>Friend Finder</h1>
-        <h5>Answer a few basic questions.</h5>
-        <h6>Then find the friend with the greatest compatibility!</h6><br /><br />
-        <button class="btn btn-info btn-primary bt-lg"><a href = "/survey">Survey</a></button>
+        <h1>Friend Finder</h1><br />
+        <h3>Answer a few basic questions.</h5>
+        <h3>Then find the friend with the greatest compatibility!</h3><br /><br />
+        <button><a href = "/survey">Survey</a></button>
     </div>
       <br /><br />
       <div class = "navbar bavbar-inverse" id ="footer">
          <a class = "menuitem" href = "/api/friendslist" target ="_blank">Friends List</a>
          <a class = "menuitem" href = "https://github.com/scodingjs/Perfectfriend" target ="_blank">Github Repo</a>
-         
+
       </div>
 
   </body>

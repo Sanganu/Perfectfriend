@@ -10,7 +10,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Hello\""
+    "scripts": "node server.js"
   },
   "repository": {
     "type": "git",
